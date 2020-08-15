@@ -1,5 +1,7 @@
 # traktor-dl
-Downloading &amp; convert youtube videos to audio via youtube-dl for use in Traktor
+> Download &amp; convert youtube videos to audio via youtube-dl for use in Traktor (or any other software)
+
+Tiny Makefile wrapper around [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 
 ### Requirements
 Nothing! This script handles installing [youtube-dl](https://github.com/ytdl-org/youtube-dl) onto your machine.

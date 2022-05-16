@@ -1,9 +1,15 @@
-init:
-	@chmod +x ./setup.sh
-	@./setup.sh
+DOWNLOAD_FOLDER="/workdir/tracks/%(title)s.%(ext)s"
 
-tracks: init
-	@chmod +x ./tracks.sh
-	@./tracks.sh
+tracks:
+	docker run \
+		--rm -i \
+		-e PGID=$(shell id -g) \
+		-e PUID=$(shell id -u) \
+		-v ${PWD}:/workdir:rw \
+		mikenye/youtube-dl \
+			-a ./tracks.txt \
+			-o ${DOWNLOAD_FOLDER} \
+			-f 'bestaudio[ext=m4a]' \
+			--add-metadata
 
 .PHONY: tracks
